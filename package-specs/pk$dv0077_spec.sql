@@ -14,6 +14,7 @@ create or replace PACKAGE pk$dv0077 AUTHID DEFINER AS
                      po_upd_yn  OUT VARCHAR2, 
                      po_del_yn  OUT VARCHAR2,
                      po_apr_yn  OUT VARCHAR2,
+                     po_cls_yn  OUT VARCHAR2,
                      po_aud_yn  OUT VARCHAR2);
   --
   --
@@ -33,6 +34,7 @@ create or replace PACKAGE pk$dv0077 AUTHID DEFINER AS
   PROCEDURE pr_apr (pi_ord_no IN NUMBER, 
                     pi_cn  IN NUMBER);
   --
+	PROCEDURE pr_cls (pi_key IN NUMBER, pi_rmks IN VARCHAR2);
   --
 END pk$dv0077;
 /
