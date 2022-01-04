@@ -29,6 +29,7 @@ create or replace PACKAGE BODY pk$dv0077 AS
                      po_upd_yn  OUT VARCHAR2, 
                      po_del_yn  OUT VARCHAR2,
                      po_apr_yn  OUT VARCHAR2,
+                     po_cls_yn  OUT VARCHAR2,
                      po_aud_yn  OUT VARCHAR2)IS
 	BEGIN
     pkdv_20_ord.pr_prvs (pi_ord_no => pi_ord_no,
@@ -36,6 +37,7 @@ create or replace PACKAGE BODY pk$dv0077 AS
                      po_upd_yn => po_upd_yn, 
                      po_del_yn => po_del_yn,
                      po_apr_yn => po_apr_yn,
+                     po_cls_yn => po_cls_yn,
                      po_aud_yn => po_aud_yn);
 		pkdv_00.pr_commit;
 	END pr_prvs;
@@ -76,6 +78,15 @@ create or replace PACKAGE BODY pk$dv0077 AS
                             pi_cn => pi_cn);
 		pkdv_00.pr_commit;
 	END pr_apr;
+  --
+  --
+  PROCEDURE pr_cls (pi_key  IN NUMBER, 
+	                  pi_rmks IN VARCHAR2)IS
+  BEGIN
+		pkdv_20_ord.pr_cls (pi_key  => pi_key,
+                        pi_rmks => pi_rmks);
+		pkdv_00.pr_commit;
+	END pr_cls;
   --
   --
 END pk$dv0077;
